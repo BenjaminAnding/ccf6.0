@@ -4,6 +4,7 @@
     <list default="true" id="119022db-92ab-4478-84a2-8da5ae81d445" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,11 +51,22 @@
       <file leaf-file-name="Overview.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="152" column="26" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
+            <state relative-caret-position="313">
+              <caret line="43" column="94" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
                 <element signature="e#3244#3311#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -93,6 +105,7 @@
       <find>routeName</find>
       <find>new</find>
       <find>MOCK_REVIEWS</find>
+      <find>dea</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,6 +118,7 @@
         <option value="$PROJECT_DIR$/src/components/UIComponents/SidebarPlugin/SideBar.vue" />
         <option value="$PROJECT_DIR$/src/components/UIComponents/SidebarPlugin/index.js" />
         <option value="$PROJECT_DIR$/src/routes/routes.js" />
+        <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue" />
       </list>
     </option>
@@ -215,12 +229,12 @@
       <updated>1523651949647</updated>
       <workItem from="1523651952128" duration="185000" />
       <workItem from="1523652187088" duration="3855000" />
-      <workItem from="1523661568136" duration="14726000" />
+      <workItem from="1523661568136" duration="17957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18766000" />
+    <option name="totallyTimeSpent" value="21997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1323" height="745" extended-state="6" />
@@ -345,9 +359,6 @@
     <entry file="file://$PROJECT_DIR$/src/components/Dashboard/Views/UserProfile/EditProfileForm.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -417,11 +428,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="152" column="26" selection-start-line="152" selection-start-column="26" selection-end-line="152" selection-end-column="26" />
+        <state relative-caret-position="313">
+          <caret line="43" column="94" selection-start-line="43" selection-start-column="94" selection-end-line="43" selection-end-column="94" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#main#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
             <element signature="e#3244#3311#0" expanded="true" />
           </folding>
         </state>

@@ -2,14 +2,14 @@
   <div id="app">
   <!--Stats cards-->
     <div class="row">
-      <div class="col-lg-3 col-sm-6" v-for="stats in statsCards">
+      <div class="col-lg-3 col-sm-3" v-for="stats in statsCards">
         <stats-card>
           <div class="icon-big text-center" :class="`icon-${stats.type}`" slot="header">
             <i :class="stats.icon"></i>
           </div>
           <div class="numbers" slot="content">
             <p>{{stats.title}}</p>
-            {{stats.value}}
+            <p><strong>{{stats.value}}</strong></p>
           </div>
           <div class="stats" slot="footer">
             <i :class="stats.footerIcon"></i> {{stats.footerText}}
@@ -28,13 +28,23 @@
         </div>
         <div class="wrapper">
           <div class="row">
-            <div v-for="article in news" :key="article.source">
-              <div class="col-md-4 cards">
-                <img :src="article.urlToImage" class="img-responsive">
-                <div>
-                  <p><a :href="article.url">{{ article.title }}</a></p>
-                  <a></a>
+            <div v-for="article in news" :key="article.source" v-show="article.urlToImage != null ">
+              <!--<div class="col-md-4 cards">-->
+                <!--<img :src="article.urlToImage" class="img-responsive">-->
+                <!--<div>-->
+                  <!--<p><a :href="article.url">{{ article.title }}</a></p>-->
+                  <!--<a></a>-->
 
+                <!--</div>-->
+              <!--</div>-->
+
+              <div class="card col-sm-4 col-xs-offset-0" style="max-height: 40rem;">
+                <img class="" :src="article.urlToImage" alt="Card image cap" style="width: 286px; height: 180px">
+                <div class="card-body">
+                  <h5 class="card-title"><a :href="article.url">{{ article.title | truncate(50) }}</a></h5>
+
+                  <!--<p class="card-text"></p>-->
+                  <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
                 </div>
               </div>
             </div>
@@ -60,13 +70,15 @@
           <h5>add new comment.</h5>
           <form @submit.prevent="addReview">
             <label>
-              Review
+              Comment
               <textarea v-model="review.content" cols="30" rows="5"></textarea>
             </label>
+            <div></div>
             <label>
               Name
               <input v-model="review.reviewer" type="text">
             </label>
+            <div></div>
             <button :disabled="!review.reviewer || !review.content" type="submit" class="button expanded">Submit</button>
           </form>
         </div>
@@ -142,7 +154,7 @@
           {
             type: 'danger',
             icon: 'ti-pulse',
-            title: 'Opium Deaths',
+            title: 'Opium Death',
             value: '23',
             footerText: 'In the last hour',
             footerIcon: 'ti-timer'
