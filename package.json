@@ -16,6 +16,8 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "chartist": "^0.10.1",
+    "plotly": "^1.0.6",
+    "plotly.js": "^1.35.2",
     "v-click-outside": "0.0.8",
     "vue": "^2.3.0",
     "vue-router": "^2.2.0"
@@ -89,5 +91,18 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
-  }
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccfteam2/CCF6.0.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccfteam2/CCF6.0/issues"
+  },
+  "homepage": "https://github.com/ccfteam2/CCF6.0#readme"
 }
