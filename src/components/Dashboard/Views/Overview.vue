@@ -41,6 +41,36 @@
           </div>
         </div>
       </main>
+    </div>
+
+      <div class="container">
+        <h4 class="uppercase">Comments</h4>
+        <div class="review" v-for="review in reviews">
+          <p>{{ review.content }}</p>
+          <div class="row">
+            <div class="columns medium-7">
+              <h5>{{ review.reviewer }}</h5>
+            </div>
+            <div class="columns medium-5">
+              <h5 class="pull-right">{{ review.time }}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="review-form">
+          <h5>add new review.</h5>
+          <form @submit.prevent="addReview">
+            <label>
+              Review
+              <textarea v-model="review.content" cols="30" rows="5"></textarea>
+            </label>
+            <label>
+              Name
+              <input v-model="review.reviewer" type="text">
+            </label>
+            <button :disabled="!review.reviewer || !review.content" type="submit" class="button expanded">Submit</button>
+          </form>
+        </div>
+
       <div class="col-md-6 col-xs-12">
         <chart-card :chart-data="preferencesChart.data"  chart-type="Pie">
           <h4 class="title" slot="title">Email Statistics</h4>
@@ -67,7 +97,6 @@
           </div>
         </chart-card>
       </div>
-
     </div>
 
 
@@ -78,13 +107,20 @@
   import ChartCard from 'components/UIComponents/Cards/ChartCard.vue'
   import axios from 'axios'
   export default {
-    name: 'app',
+    nameA: 'app',
+    nameB: 'reviews',
     components: {
       StatsCard,
       ChartCard
     },
     data () {
       return {
+        mockReviews: [],
+        movie: null,
+        review: {
+          content: '',
+          reviewer: ''
+        },
         jokes: [],
         loading: false,
         statsCards: [
@@ -183,10 +219,28 @@
                   }, () => {
                     this.loading = false
                   })
+      },
+      addReview () {
+        if (!this.review.reviewer || !this.review.content) {
+          return
+        }
+        let review = {
+          content: this.review.content,
+          reviewer: this.review.reviewer,
+          time: new Date().toLocaleDateString()
+        }
+        this.mockReviews.unshift(review)
       }
     },
     created: function () {
       this.getJokes()
+    },
+    computed: {
+      reviews () {
+        return this.mockReviews.filter(review => {
+          return review
+        })
+      }
     }
   }
 </script>
