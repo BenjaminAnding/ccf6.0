@@ -1,5 +1,12 @@
 <template>
-  <div id='columnchart_values' style='width: 900px height: 300px'></div>
+  <div>
+    <div class="row">
+      <div class="col col-lg-offset-4 graph">
+        <h1 class="title">Interactive Prescription Rates Data Graph Between 2011-2015</h1>
+        <div class="d-flex justify-content-center" id='columnchart_values' style='width: 900px height: 300px'></div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
   import axios from 'axios'
@@ -28,7 +35,7 @@
     methods: {
       getPrepData () {
         var res = []
-        res.push(['Year', 'Number of Perscriptions', {role: 'style'}, 'Number of Deaths', {role: 'style'}])
+        res.push(['Year', 'Number of Opioid Perscriptions', {role: 'style'}, 'Number of Treatment Perscriptions', {role: 'style'}])
         res.push(['2011', 896303, 'purple', 219774, 'blue'])
         res.push(['2012', 359447, 'purple', 2622, 'blue'])
         res.push(['2013', 394620, 'purple', 18321, 'blue'])
@@ -40,7 +47,7 @@
       getPrepData2 () {
         var res = []
         var self = this
-        res.push(['Year', 'Number of Perscriptions', { role: 'style' }, 'Number of Deaths', { role: 'style' }])
+        res.push(['Year', 'Number of Opioid Perscriptions', { role: 'style' }, 'Number of Treatment Perscriptions', { role: 'style' }])
         for (var i = 0; i < self.dataSource.length; i++) {
           var tmp
           axios.get(self.dataSource[i])

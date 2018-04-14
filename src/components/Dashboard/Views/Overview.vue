@@ -21,34 +21,19 @@
     <!--Charts-->
     <div class="row">
       <main>
-
-
-        <div v-if="loading">
-          Loading.....
-        </div>
+        <h2 class="title">News</h2>
         <div class="wrapper">
-          <div class="row">
-            <div v-for="article in news" :key="article.source" v-show="article.urlToImage != null ">
-              <!--<div class="col-md-4 cards">-->
-                <!--<img :src="article.urlToImage" class="img-responsive">-->
-                <!--<div>-->
-                  <!--<p><a :href="article.url">{{ article.title }}</a></p>-->
-                  <!--<a></a>-->
-
-                <!--</div>-->
-              <!--</div>-->
-
-              <div class="card col-sm-4 col-xs-offset-0" style="max-height: 40rem;">
-                <img class="" :src="article.urlToImage" alt="Card image cap" style="width: 286px; height: 180px">
-                <div class="card-body">
-                  <h5 class="card-title"><a :href="article.url">{{ article.title | truncate(50) }}</a></h5>
-
-                  <!--<p class="card-text"></p>-->
-                  <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
-                </div>
+          <div class="col-lg-4" v-for="article in news" v-show="article.urlToImage != null">
+            <div class="card card1">
+              <div class="col-lg-12 img">
+                <img :src="article.urlToImage" class="img-thumbnail">
               </div>
+              <!--<h4>Investment Strategy</h4>-->
+              <p>{{ article.title | truncate(50) }}</p>
+              <a :href="article.url" class="btn btn-info">Read More</a>
             </div>
           </div>
+
         </div>
       </main>
     </div>
@@ -83,32 +68,32 @@
           </form>
         </div>
 
-      <div class="col-md-6 col-xs-12">
-        <chart-card :chart-data="preferencesChart.data"  chart-type="Pie">
-          <h4 class="title" slot="title">Email Statistics</h4>
-          <span slot="subTitle"> Last campaign performance</span>
-          <span slot="footer">
-            <i class="ti-timer"></i> Campaign set 2 days ago</span>
-          <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Open
-            <i class="fa fa-circle text-danger"></i> Bounce
-            <i class="fa fa-circle text-warning"></i> Unsubscribe
-          </div>
-        </chart-card>
-      </div>
+      <!--<div class="col-md-6 col-xs-12">-->
+        <!--<chart-card :chart-data="preferencesChart.data"  chart-type="Pie">-->
+          <!--<h4 class="title" slot="title">Email Statistics</h4>-->
+          <!--<span slot="subTitle"> Last campaign performance</span>-->
+          <!--<span slot="footer">-->
+            <!--<i class="ti-timer"></i> Campaign set 2 days ago</span>-->
+          <!--<div slot="legend">-->
+            <!--<i class="fa fa-circle text-info"></i> Open-->
+            <!--<i class="fa fa-circle text-danger"></i> Bounce-->
+            <!--<i class="fa fa-circle text-warning"></i> Unsubscribe-->
+          <!--</div>-->
+        <!--</chart-card>-->
+      <!--</div>-->
 
-      <div class="col-md-6 col-xs-12">
-        <chart-card :chart-data="activityChart.data" :chart-options="activityChart.options">
-          <h4 class="title" slot="title">2015 Sales</h4>
-          <span slot="subTitle"> All products including Taxes</span>
-          <span slot="footer">
-            <i class="ti-check"></i> Data information certified</span>
-          <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Tesla Model S
-            <i class="fa fa-circle text-warning"></i> BMW 5 Series
-          </div>
-        </chart-card>
-      </div>
+      <!--<div class="col-md-6 col-xs-12">-->
+        <!--<chart-card :chart-data="activityChart.data" :chart-options="activityChart.options">-->
+          <!--<h4 class="title" slot="title">2015 Sales</h4>-->
+          <!--<span slot="subTitle"> All products including Taxes</span>-->
+          <!--<span slot="footer">-->
+            <!--<i class="ti-check"></i> Data information certified</span>-->
+          <!--<div slot="legend">-->
+            <!--<i class="fa fa-circle text-info"></i> Tesla Model S-->
+            <!--<i class="fa fa-circle text-warning"></i> BMW 5 Series-->
+          <!--</div>-->
+        <!--</chart-card>-->
+      <!--</div>-->
     </div>
 
 
@@ -138,7 +123,7 @@
           {
             type: 'warning',
             icon: 'ti-server',
-            title: 'Opium Heads',
+            title: 'Active Prescriptions',
             value: '105 Million',
             footerText: 'Updated now',
             footerIcon: 'ti-reload'
@@ -154,7 +139,7 @@
           {
             type: 'danger',
             icon: 'ti-pulse',
-            title: 'Opium Death',
+            title: 'Opioid Death',
             value: '23',
             footerText: 'In the last hour',
             footerIcon: 'ti-timer'
@@ -226,7 +211,6 @@
                   .then((response) => {
                     self.loading = false
                     self.news = response.data.articles
-                    console.log(response.data)
                   }, () => {
                     this.loading = false
                   })
