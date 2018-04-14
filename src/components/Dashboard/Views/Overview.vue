@@ -28,11 +28,11 @@
         </div>
         <div class="wrapper">
           <div class="row">
-            <div v-for="joke in jokes" :key="joke.source">
+            <div v-for="article in news" :key="article.source">
               <div class="col-md-4 cards">
-                <img :src="joke.urlToImage" class="img-responsive">
+                <img :src="article.urlToImage" class="img-responsive">
                 <div>
-                  <p><a :href="joke.url">{{ joke.title }}</a></p>
+                  <p><a :href="article.url">{{ article.title }}</a></p>
                   <a></a>
 
                 </div>
@@ -57,7 +57,7 @@
           </div>
         </div>
         <div class="review-form">
-          <h5>add new review.</h5>
+          <h5>add new comment.</h5>
           <form @submit.prevent="addReview">
             <label>
               Review
@@ -116,26 +116,25 @@
     data () {
       return {
         mockReviews: [],
-        movie: null,
         review: {
           content: '',
           reviewer: ''
         },
-        jokes: [],
+        news: [],
         loading: false,
         statsCards: [
           {
             type: 'warning',
             icon: 'ti-server',
-            title: 'Capacity',
-            value: '105GB',
+            title: 'Opium Heads',
+            value: '105 Million',
             footerText: 'Updated now',
             footerIcon: 'ti-reload'
           },
           {
             type: 'success',
             icon: 'ti-wallet',
-            title: 'Revenue',
+            title: 'Funds Raised',
             value: '$1,345',
             footerText: 'Last day',
             footerIcon: 'ti-calendar'
@@ -143,7 +142,7 @@
           {
             type: 'danger',
             icon: 'ti-pulse',
-            title: 'Errors',
+            title: 'Opium Deaths',
             value: '23',
             footerText: 'In the last hour',
             footerIcon: 'ti-timer'
@@ -151,7 +150,7 @@
           {
             type: 'info',
             icon: 'ti-twitter-alt',
-            title: 'Followers',
+            title: 'Topics',
             value: '+45',
             footerText: 'Updated now',
             footerIcon: 'ti-reload'
@@ -208,13 +207,13 @@
       }
     },
     methods: {
-      getJokes: function () {
+      getNews: function () {
         this.loading = true
         var self = this
         axios.get('https://newsapi.org//v2/everything?q=Opiods&sortBy=popularity&apiKey=f0031e54e7844ca8a085972f3a24115b')
                   .then((response) => {
                     self.loading = false
-                    self.jokes = response.data.articles
+                    self.news = response.data.articles
                     console.log(response.data)
                   }, () => {
                     this.loading = false
@@ -233,7 +232,7 @@
       }
     },
     created: function () {
-      this.getJokes()
+      this.getNews()
     },
     computed: {
       reviews () {
