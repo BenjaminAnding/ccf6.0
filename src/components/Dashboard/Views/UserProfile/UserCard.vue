@@ -6,34 +6,50 @@
     <div class="content">
       <div class="author">
         <img class="avatar border-white" src="static/img/faces/face-2.jpg" alt="...">
-        <h4 class="title">Chet Faker
+        <h4 class="title">{{ info['nppes_provider_first_name'] + ' ' + info['nppes_provider_last_org_name'] }}
           <br>
           <a href="#">
-            <small>@chetfaker</small>
+            <small>@{{ info['npi'] }}</small>
           </a>
         </h4>
       </div>
       <p class="description text-center">
-        "I like the way you work it
-        <br> No diggity
-        <br> I wanna bag it up"
+        {{ info['nppes_provider_city'] + ', ' + info['nppes_provider_state'] }}
+        <br>Drug name: {{ info['drug_name'] }}
+        <br>Description: {{ info['specialty_desc'] }}
       </p>
     </div>
     <hr>
     <div class="text-center">
       <div class="row">
-        <div v-for="(info,index) in details" :class="getClasses(index)">
-          <h5>{{info.title}}
+        <div :class="getClasses(0)">
+          <h5>{{info.total_claim_count}}
             <br>
-            <small>{{info.subTitle}}</small>
+            <small>Total Claim</small>
           </h5>
         </div>
+
+        <div :class="getClasses(1)">
+          <h5>{{info.total_day_supply}}
+            <br>
+            <small>Total daily supply</small>
+          </h5>
+        </div>
+
+        <div :class="getClasses(2)">
+          <h5>{{info.total_drug_cost}}
+            <br>
+            <small>Drug cost $</small>
+          </h5>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 <script>
   export default {
+    props: ['info'],
     data () {
       return {
         details: [
