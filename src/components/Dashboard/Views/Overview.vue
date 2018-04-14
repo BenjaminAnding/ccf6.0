@@ -1,5 +1,31 @@
 <template>
-  <div>
+  <div id="app">
+    <header>
+      <span>Handling Ajax Request with Axios in Vue</span>
+    </header>
+    <main>
+      <h2>Click the button to get Random jokes</h2>
+      <button id="btn" class="" v-on:click="getJokes">Get Jokes</button>
+
+      <div v-if="loading">
+        Loading.....
+      </div>
+    <div class="wrapper">
+      <div class="row">
+        <div v-for="joke in jokes" :key="joke.id">
+          <div class="col-md-4 cards">
+            <img src="https://placeimg.com/300/300/nature" class="img-responsive" alt="Random images placeholder">
+            <div>
+              <h3>{{ joke.id }}</h3>
+              <p>{{ joke.joke }}</p>
+              <p>{{ joke.category }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+
 
     <!--Stats cards-->
     <div class="row">
@@ -65,21 +91,23 @@
 
     </div>
 
+
   </div>
 </template>
 <script>
   import StatsCard from 'components/UIComponents/Cards/StatsCard.vue'
   import ChartCard from 'components/UIComponents/Cards/ChartCard.vue'
+  import axios from 'axios'
   export default {
+    name: 'app',
     components: {
       StatsCard,
       ChartCard
     },
-    /**
-     * Chart data used to render stats, charts. Should be replaced with server data
-     */
     data () {
       return {
+        jokes: [],
+        loading: false,
         statsCards: [
           {
             type: 'warning',
@@ -118,9 +146,9 @@
           data: {
             labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
             series: [
-              [287, 385, 490, 562, 594, 626, 698, 895, 952],
-              [67, 152, 193, 240, 387, 435, 535, 642, 744],
-              [23, 113, 67, 108, 190, 239, 307, 410, 410]
+                          [287, 385, 490, 562, 594, 626, 698, 895, 952],
+                          [67, 152, 193, 240, 387, 435, 535, 642, 744],
+                          [23, 113, 67, 108, 190, 239, 307, 410, 410]
             ]
           },
           options: {
@@ -142,8 +170,8 @@
           data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             series: [
-              [542, 543, 520, 680, 653, 753, 326, 434, 568, 610, 756, 895],
-              [230, 293, 380, 480, 503, 553, 600, 664, 698, 710, 736, 795]
+                          [542, 543, 520, 680, 653, 753, 326, 434, 568, 610, 756, 895],
+                          [230, 293, 380, 480, 503, 553, 600, 664, 698, 710, 736, 795]
             ]
           },
           options: {
@@ -163,9 +191,20 @@
         }
 
       }
+    },
+    methods: {
+      getJokes: function () {
+        this.loading = true
+        axios.get('http://api.icndb.com/jokes/random/10')
+                  .then((response) => {
+                    this.loading = false
+                    this.jokes = response.data.value
+                  }, () => {
+                    this.loading = false
+                  })
+      }
     }
   }
-
 </script>
 <style>
 
