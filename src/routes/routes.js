@@ -54,7 +54,7 @@ const routes = [
       },
       {
         path: 'table-list',
-        name: 'Fatalities Statistic',
+        name: 'Prescription Statistic 2013-2015',
         component: TableList
       }
     ]

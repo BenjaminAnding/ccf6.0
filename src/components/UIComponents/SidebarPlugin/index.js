@@ -14,7 +14,7 @@ const SidebarStore = {
       path: '/admin/stats'
     },
     {
-      name: 'Fatalities Statistic',
+      name: 'Prescription Statistic',
       icon: 'ti-view-list-alt',
       path: '/admin/table-list'
     },
