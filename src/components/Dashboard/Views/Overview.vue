@@ -1,33 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <span>Handling Ajax Request with Axios in Vue</span>
-    </header>
-    <main>
-      <h2>Click the button to get Random jokes</h2>
-      <button id="btn" class="" v-on:click="getJokes">Get Jokes</button>
-
-      <div v-if="loading">
-        Loading.....
-      </div>
-    <div class="wrapper">
-      <div class="row">
-        <div v-for="joke in jokes" :key="joke.id">
-          <div class="col-md-4 cards">
-            <img src="https://placeimg.com/300/300/nature" class="img-responsive" alt="Random images placeholder">
-            <div>
-              <h3>{{ joke.id }}</h3>
-              <p>{{ joke.joke }}</p>
-              <p>{{ joke.category }}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </main>
-
-
-    <!--Stats cards-->
+  <!--Stats cards-->
     <div class="row">
       <div class="col-lg-3 col-sm-6" v-for="stats in statsCards">
         <stats-card>
@@ -47,21 +20,28 @@
 
     <!--Charts-->
     <div class="row">
+      <main>
 
-      <div class="col-xs-12">
-        <chart-card :chart-data="usersChart.data" :chart-options="usersChart.options">
-          <h4 class="title" slot="title">Users behavior</h4>
-          <span slot="subTitle"> 24 Hours performance</span>
-          <span slot="footer">
-            <i class="ti-reload"></i> Updated 3 minutes ago</span>
-          <div slot="legend">
-            <i class="fa fa-circle text-info"></i> Open
-            <i class="fa fa-circle text-danger"></i> Click
-            <i class="fa fa-circle text-warning"></i> Click Second Time
+        <button id="btn" class="" v-on:click="getJokes">Get Jokes</button>
+
+        <div v-if="loading">
+          Loading.....
+        </div>
+        <div class="wrapper">
+          <div class="row">
+            <div v-for="joke in jokes" :key="joke.title">
+              <div class="col-md-4 cards">
+                <img src="https://placeimg.com/300/300/nature" class="img-responsive" alt="Random images placeholder">
+                <div>
+                  <h3>{{ joke.title }}</h3>
+                  <p>{{ joke.author }}</p>
+                  <p>{{ joke.category }}</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </chart-card>
-      </div>
-
+        </div>
+      </main>
       <div class="col-md-6 col-xs-12">
         <chart-card :chart-data="preferencesChart.data"  chart-type="Pie">
           <h4 class="title" slot="title">Email Statistics</h4>
@@ -195,7 +175,7 @@
     methods: {
       getJokes: function () {
         this.loading = true
-        axios.get('http://api.icndb.com/jokes/random/10')
+        axios.get('https://newsapi.org//v2/top-headlines?sources=axios&' + 'q=Apple&' + 'from=2018-04-14&' + 'sortBy=popularity&' + 'apiKey=f0031e54e7844ca8a085972f3a24115b')
                   .then((response) => {
                     this.loading = false
                     this.jokes = response.data.value

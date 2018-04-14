@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="119022db-92ab-4478-84a2-8da5ae81d445" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +49,8 @@
       <file leaf-file-name="Overview.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="203" column="14" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
+            <state relative-caret-position="191">
+              <caret line="36" column="33" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="33" />
               <folding>
                 <element signature="e#3244#3311#0" expanded="true" />
               </folding>
@@ -215,12 +212,12 @@
       <updated>1523651949647</updated>
       <workItem from="1523651952128" duration="185000" />
       <workItem from="1523652187088" duration="3855000" />
-      <workItem from="1523661568136" duration="4050000" />
+      <workItem from="1523661568136" duration="6199000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8090000" />
+    <option name="totallyTimeSpent" value="10239000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1323" height="745" extended-state="6" />
@@ -419,8 +416,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Dashboard/Views/Overview.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="203" column="14" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
+        <state relative-caret-position="191">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="33" />
           <folding>
             <element signature="e#3244#3311#0" expanded="true" />
           </folding>
