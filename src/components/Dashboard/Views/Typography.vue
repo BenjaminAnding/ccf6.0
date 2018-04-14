@@ -1,169 +1,97 @@
 <template>
- <div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="header">
-        <h4 class="title">Paper Dashboard Headings</h4>
-        <p class="category">Created using
-          <a href="https://www.google.com/fonts/specimen/Muli">Muli</a> Font Family</p>
-      </div>
-      <div class="content">
-        <div class="typo-line">
-          <h1>
-            <p class="category">Header 1</p>Paper Dashboard Heading </h1>
-        </div>
-        <div class="typo-line">
-          <h2>
-            <p class="category">Header 2</p>Paper Dashboard Heading </h2>
-        </div>
-        <div class="typo-line">
-          <h3>
-            <p class="category">Header 3</p>Paper Dashboard Heading </h3>
-        </div>
-        <div class="typo-line">
-          <h4>
-            <p class="category">Header 4</p>Paper Dashboard Heading </h4>
-        </div>
-        <div class="typo-line">
-          <h5>
-            <p class="category">Header 5</p>Paper Dashboard Heading </h5>
-        </div>
-        <div class="typo-line">
-          <h6>
-            <p class="category">Header 6</p>Paper Dashboard Heading </h6>
-        </div>
-        <div class="typo-line">
-          <p>
-            <span class="category">Paragraph</span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
-          </p>
-        </div>
-        <div class="typo-line">
-          <p class="category">Quote</p>
-          <blockquote>
-            <p>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.
-            </p>
-            <small>
-              Steve Jobs, CEO Apple
-            </small>
-          </blockquote>
-        </div>
-        <div class="typo-line">
-          <p class="category">Muted Text</p>
-          <p class="text-muted">
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
-          </p>
-        </div>
-        <div class="typo-line">
-          <!--
-               there are also "text-info", "text-success", "text-warning", "text-danger" clases for the text
-               -->
-          <p class="category">Coloured Text</p>
-          <p class="text-primary">
-            Text Primary - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
-          </p>
-          <p class="text-info">
-            Text Info - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
-          </p>
-          <p class="text-success">
-            Text Success - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
-          </p>
-          <p class="text-warning">
-            Text Warning - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
-          </p>
-          <p class="text-danger">
-            Text Danger - Light Bootstrap Table Heading and complex bootstrap dashboard you've ever seen on the internet.
-          </p>
-        </div>
-        <div class="typo-line">
-          <h2>
-            <p class="category">Small Tag</p>Header with small subtitle
-            <br>
-            <small>".small" is a tag for the headers</small>
-          </h2>
-        </div>
-        <div class="typo-line">
-          <p class="category">Lists</p>
-          <div class="row">
-            <div class="col-md-3">
-              <h5>Unordered List</h5>
-              <ul>
-                <li>List Item</li>
-                <li>List Item</li>
-                <li class="list-unstyled">
-                  <ul>
-                    <li>List Item</li>
-                    <li>List Item</li>
-                    <li>List Item</li>
-                  </ul>
-                </li>
-                <li>List Item</li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <h5>Ordered List</h5>
-              <ol>
-                <li>List Item</li>
-                <li>List Item</li>
-                <li>List Item</li>
-              </ol>
-            </div>
-            <div class="col-md-3">
-              <h5>Unstyled List</h5>
-              <ul class="list-unstyled">
-                <li>List Item</li>
-                <li>List Item</li>
-                <li>List Item</li>
-              </ul>
-            </div>
-            <div class="col-md-3">
-              <h5>Inline List</h5>
-              <ul class="list-inline">
-                <li>List Item</li>
-                <li>List Item</li>
-                <li>List Item</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="typo-line">
-          <p class="category">Blockquotes</p>
-          <div class="row">
-            <div class="col-md-6">
-              <h5>Default Blockquote</h5>
-              <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              </blockquote>
-            </div>
-            <div class="col-md-6">
-              <h5>Blockquote with Citation</h5>
-              <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <small>Someone famous in
-                  <cite title="Source Title">Source Title</cite>
-                </small>
-              </blockquote>
-            </div>
-          </div>
-        </div>
-        <div class="typo-line">
-          <p class="category">Code</p>
-          <p>
-            This is
-            <code>.css-class-as-code</code>, an example of an inline code element. Wrap inline code within a
-            <code>
-              &lt;code&gt;...&lt;/code&gt;</code>tag.</p>
-          <pre>1. #This is an example of preformatted text. 2. #Here is another line of code</pre>
-        </div>
-      </div>
-    </div>
-  </div>
- </div>
+  <div id='columnchart_values' style='width: 900px height: 300px'></div>
 </template>
 <script>
-  export default {}
+  import axios from 'axios'
 
+  export default {
+    data () {
+      return {
+        dataSource: [
+          'https://data.medicaid.gov/resource/au58-3g3e.json?$select=sum(number_of_prescriptions)&$where=upper(product_fda_list_name)="OXYCONTIN" OR upper(product_fda_list_name)="VICODIN"',
+          'https://data.medicaid.gov/resource/jzhb-tr7x.json?$select=sum(number_of_prescriptions)&$where=upper(product_fda_list_name)="OXYCONTIN" OR upper(product_fda_list_name)="VICODIN"',
+          'https://data.medicaid.gov/resource/hcg7-jjb2.json?$select=sum(number_of_prescriptions)&$where=upper(product_fda_list_name)="OXYCONTIN" OR upper(product_fda_list_name)="VICODIN"',
+          'https://data.medicaid.gov/resource/qpz6-74iw.json?$select=sum(number_of_prescriptions)&$where=upper(product_fda_list_name)="OXYCONTIN" OR upper(product_fda_list_name)="VICODIN"',
+          'https://data.medicaid.gov/resource/m4ab-dkvc.json?$select=sum(number_of_prescriptions)&$where=upper(product_fda_list_name)="OXYCONTIN" OR upper(product_fda_list_name)="VICODIN"'
+        ],
+        dataColor: [
+          '#b87333',
+          'silver',
+          'gold',
+          '#e5e4e2',
+          'purple'
+        ],
+        res1: [],
+        res2: []
+      }
+    },
+    methods: {
+      getPrepData () {
+        var res = []
+        res.push(['Year', 'Number of Perscriptions', {role: 'style'}, 'Number of Deaths', {role: 'style'}])
+        res.push(['2011', 896303, 'purple', 219774, 'blue'])
+        res.push(['2012', 359447, 'purple', 2622, 'blue'])
+        res.push(['2013', 394620, 'purple', 18321, 'blue'])
+        res.push(['2014', 441772, 'purple', 34033, 'blue'])
+        res.push(['2015', 748849, 'purple', 627354, 'blue'])
+
+        return res
+      },
+      getPrepData2 () {
+        var res = []
+        var self = this
+        res.push(['Year', 'Number of Perscriptions', { role: 'style' }, 'Number of Deaths', { role: 'style' }])
+        for (var i = 0; i < self.dataSource.length; i++) {
+          var tmp
+          axios.get(self.dataSource[i])
+            .then(function (value1) {
+              var item = value1.data
+              console.log(i)
+              tmp = [parseInt(item[0]['sum_number_of_prescriptions'])]
+              res.push(tmp)
+            })
+        }
+        return res
+      },
+      drawGraph () {
+        google.charts.load('current', {packages: ['corechart']})
+        google.charts.setOnLoadCallback(drawChart)
+
+        var prepData = this.getPrepData()
+
+        console.log(prepData)
+        function drawChart () {
+          var data = google.visualization.arrayToDataTable(prepData)
+
+          var view = new google.visualization.DataView(data)
+          view.setColumns([0, 1,
+            {
+              calc: 'stringify',
+              sourceColumn: 1,
+              type: 'string',
+              role: 'annotation'
+            }, 2, 3, {
+              calc: 'stringify',
+              sourceColumn: 3,
+              type: 'string',
+              role: 'annotation'
+            }, 4])
+
+          var options = {
+            title: 'Number of Opioid VS Treatment Prescriptions 2011-2015 (US)',
+            width: 900,
+            height: 600,
+            bar: {groupWidth: '95%'},
+            legend: {position: 'none'}
+          }
+          var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'))
+          chart.draw(view, options)
+        }
+      }
+    },
+
+    created () {
+      this.drawGraph()
+    }
+  }
 </script>
-<style>
-
-</style>
