@@ -29,13 +29,13 @@
         </div>
         <div class="wrapper">
           <div class="row">
-            <div v-for="joke in jokes" :key="joke.title">
+            <div v-for="joke in jokes" :key="joke.source">
               <div class="col-md-4 cards">
-                <img src="https://placeimg.com/300/300/nature" class="img-responsive" alt="Random images placeholder">
+                <img :src="joke.urlToImage" class="img-responsive" alt="Random images placeholder">
                 <div>
-                  <h3>{{ joke.title }}</h3>
-                  <p>{{ joke.author }}</p>
-                  <p>{{ joke.category }}</p>
+                  <p><a :href="joke.url">{{ joke.title }}</a></p>
+                  <a></a>
+
                 </div>
               </div>
             </div>
@@ -175,10 +175,12 @@
     methods: {
       getJokes: function () {
         this.loading = true
-        axios.get('https://newsapi.org//v2/top-headlines?sources=axios&' + 'q=Apple&' + 'from=2018-04-14&' + 'sortBy=popularity&' + 'apiKey=f0031e54e7844ca8a085972f3a24115b')
+        var self = this
+        axios.get('https://newsapi.org//v2/top-headlines?' + 'q=apple&' + 'sortBy=popularity&' + 'apiKey=f0031e54e7844ca8a085972f3a24115b')
                   .then((response) => {
-                    this.loading = false
-                    this.jokes = response.data.value
+                    self.loading = false
+                    self.jokes = response.data.articles
+                    console.log(response.data)
                   }, () => {
                     this.loading = false
                   })
