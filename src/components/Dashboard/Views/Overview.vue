@@ -138,7 +138,7 @@
           {
             type: 'warning',
             icon: 'ti-server',
-            title: 'Opium Heads',
+            title: 'Opioid Prescriptions',
             value: '105 Million',
             footerText: 'Updated now',
             footerIcon: 'ti-reload'
