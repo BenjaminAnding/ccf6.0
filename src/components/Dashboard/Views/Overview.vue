@@ -22,7 +22,6 @@
     <div class="row">
       <main>
 
-        <button id="btn" class="" v-on:click="getJokes">Get Jokes</button>
 
         <div v-if="loading">
           Loading.....
@@ -31,7 +30,7 @@
           <div class="row">
             <div v-for="joke in jokes" :key="joke.source">
               <div class="col-md-4 cards">
-                <img :src="joke.urlToImage" class="img-responsive" alt="Random images placeholder">
+                <img :src="joke.urlToImage" class="img-responsive">
                 <div>
                   <p><a :href="joke.url">{{ joke.title }}</a></p>
                   <a></a>
@@ -176,7 +175,7 @@
       getJokes: function () {
         this.loading = true
         var self = this
-        axios.get('https://newsapi.org//v2/top-headlines?' + 'q=apple&' + 'sortBy=popularity&' + 'apiKey=f0031e54e7844ca8a085972f3a24115b')
+        axios.get('https://newsapi.org//v2/everything?q=Opiods&sortBy=popularity&apiKey=f0031e54e7844ca8a085972f3a24115b')
                   .then((response) => {
                     self.loading = false
                     self.jokes = response.data.articles
@@ -185,6 +184,9 @@
                     this.loading = false
                   })
       }
+    },
+    created: function () {
+      this.getJokes()
     }
   }
 </script>
